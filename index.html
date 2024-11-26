@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvika Chadha - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        /* Gradient Color Scheme */
+        :root {
+            --primary-color: #000000; /* Black */
+            --secondary-color:#2B124C; /* Pink */
+            --accent-color: #ff9800; /* Orange */
+            --background-color: #FBE4D8; /* Gradient from Black to Pink */
+            --light-color: #f0f0f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--background-color);
+            color: var(--light-color);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--primary-color);
+            padding: 1rem 2rem;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+    /* Keyframes for Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes zoomIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Hero Section */
+    .hero-section {
+        min-height: 100vh;
+        background: linear-gradient(180deg,#2B124C, #FBE4D8);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: left; /* Adjusted for layout */
+    }
+
+    .hero-photo-container {
+        flex: 1; /* Ensures even space distribution */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: zoomIn 6s ease-in-out infinite; /* Photo animation */
+    }
+
+    .hero-photo {
+        border-radius: 50%;
+        width: 450px; /* Adjust as needed */
+        height: 450px;
+        object-fit: cover;
+    }
+
+    .hero-content {
+        flex: 2; /* Ensures text section is larger */
+        padding-left: 30px;
+        animation: slideIn 6s ease-in-out infinite; /* Content animation */
+    }
+
+    .hero-content h1 {
+        font-size: 4.5rem;
+        margin-bottom: 20px;
+        animation: fadeIn 6s ease-in-out; /* Title animation */
+        animation-delay: 0.5s; /* Slight delay for staggered effect */
+        animation-fill-mode: both; /* Ensures animation state persists */
+    }
+
+    .hero-content p {
+        font-size: 2rem;
+        animation: fadeIn 1.2s ease-in-out; /* Paragraph animation */
+        animation-delay: 1s; /* Delay to follow the title animation */
+        animation-fill-mode: both;
+    }
+
+        /* Sections */
+        .section {
+            padding: 60px 20px;
+            transition: all 1s ease;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Categories Section */
+        .categories-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 30px;
+            scroll-behavior: smooth;
+            animation: fadeIn 2s forwards;
+        }
+
+        .category-card {
+            background: #2B124C;
+            color:  #FBE4D8;
+            border-radius: 15px;
+            width: 250px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-card h5 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .category-card p {
+            font-size: 1.5rem;
+        }
+
+        /* Strengths and Weaknesses Section */
+        .strengths-weaknesses-container {
+            display: flex;
+            gap: 20px;
+            justify-content: space-evenly;
+        }
+
+        .strengths-weaknesses-container .section-card {
+            background:#522B5B;
+            color:  #FBE4D8;
+            padding: 20px;
+            border-radius: 10px;
+            width: 45%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .strengths-weaknesses-container h3 {
+            color:#FBE4D8;
+        }
+
+        .strengths-weaknesses-container p {
+            font-size: 1.5rem;
+        }
+
+        /* Education Section */
+        .education-container {
+            padding-left: 50px;
+            padding-right: 50px;
+            position: relative;
+        }
+
+        .education-container::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background-color: #2B124C;
+            animation: lineAnim 2s ease-in-out infinite;
+        }
+
+        .education-point {
+            position: relative;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            opacity: 100;
+            transform: translateY(50px);
+            animation: pointAnim 1s ease-out forwards;
+        }
+
+        .education-point:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .education-point:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .education-point:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .education-point .dot {
+            width: 25px;
+            height: 25px;
+            background-color: #2B124C;
+            border-radius: 50%;
+            margin-right: 25px;
+            z-index: 10;
+        }
+
+        .education-point .details {
+            font-size: 1.6rem;
+            color:#2B124C;
+        }
+
+        .education-container h2 {
+            font-size: 1.9rem;
+            color:#2B124C;
+        }
+        @keyframes lineAnim {
+            0%, 100% { height: 0; }
+            50% { height: 100%; }
+        }
+
+        @keyframes pointAnim {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #FBE4D8;
+        }
+
+        .software-logos {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .software-logos img {
+            width: 60px;
+            height: 60px;
+            transition: transform 0.3s;
+        }
+
+        .software-logos img:hover {
+            transform: scale(1.2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Yuvika Chadha</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+   <!-- Hero Section -->
+<section class="hero-section" id="home">
+    <div class="container d-flex align-items-center">
+        <div class="hero-photo-container">
+            <img src="self.png" alt="Yuvika Chadha" class="hero-photo">
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio!</h1>
+            <p>Creative, Strategic, and Passionate about Design.</p>
+        </div>
+    </div>
+</section>
+     <!-- Education Section -->
+     <section id="education" class="section education-container">
+        <h2>Education</h2>
+        <div class="education-point">
+            <div class="dot"></div>
+            <div class="details">Junior College - Fashion Design and Arts - Billabong High International (2022)</div>
+        </div>
+        <div class="education-point">
+            <div class="dot"></div>
+            <div class="details">Bachlors of Design - Visual Communication - Atlas Skilltech University ISDI (2027)</div>
+        </div>
+    </section>
+
+    <!-- Strengths and Weaknesses Section -->
+    <section id="strengths-weaknesses" class="section">
+        <div class="container strengths-weaknesses-container">
+            <div class="section-card">
+                <h3>Strengths</h3>
+                <p>Creative problem solving, leadership, excellent communication skills, and innovative thinking.</p>
+            </div>
+            <div class="section-card">
+                <h3>Weaknesses</h3>
+                <p>Perfectionism, overly critical at times, sometimes hesitant to delegate tasks.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Categories Section -->
+    <section id="categories" class="section">
+        <div class="categories-container">
+            <div class="category-card">
+                    <h5 class="card-title">Sketches and Paintings</h5>
+                    <p class="card-text">Explore my visual ideas.</p>
+                    <a href="sketches and paintings.html" class="btn btn-primary">View </a>
+            </div>
+            <div class="category-card">
+                    <h5 class="card-title">Brands Collaborations</h5>
+                    <p class="card-text">View collaborations and partnerships.</p>
+                    <a href="brands collaborations.html" class="btn btn-primary">View </a>
+            </div>
+            <div class="category-card">
+                    <h5 class="card-title">Marketing</h5>
+                    <p class="card-text">Social media and marketing campaigns.</p>
+                    <a href="marketing.html" class="btn btn-primary">View </a>
+            </div>
+            <div class="category-card">
+                    <h5 class="card-title">College Assignments</h5>
+                    <p class="card-text">Explore academic projects.</p>
+                    <a href="college.html" class="btn btn-primary">View </a>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Yuvika Chadha</p>
+        <div class="social-links">
+            <a href="https://in.linkedin.com/in/yuvika-chadha-2763112b7" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-facebook"></a>
+            <a href="https://www.instagram.com/yuvichadha05/" class="fab fa-instagram"></a>
+        </div>
+    </footer>
+
+    <!-- Script Tags -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
